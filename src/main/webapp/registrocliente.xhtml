@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3c.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+    <title>Registrar Cliente</title>
+</h:head>
+<body background="/resources/bg.png" >
+    <font color="#FFFFFF" face="Comic Sans MS">
+        <h:form id="formulario">
+            <h1 align="center"><big> Registrar Cliente </big></h1>
+            <h2>Registrar Nuevo Cliente: </h2>
+            <p:inputText id="Documento" type="Long" binding="#{documento}" placeholder="ID"/>
+            <p:inputText id="Nombre" type="String" binding="#{nombre}" placeholder="Name"/>
+            <p:inputText id="Direccion" type="String" binding="#{direccion}" placeholder="Address"/>
+            <p:inputText id="Telefono" type="String" binding="#{telefono}" placeholder="Phone"/>
+            <p:inputText id="Email" type="String" binding="#{email}" placeholder="Email"/>
+            <br></br>
+            <br></br>
+            <div class="divButton">
+                <p:commandButton update="formulario" class="Button" actionListener="#{AlquilerItemsBean.registrarCliente(documento.value,nombre.value,telefono.value,direccion.value,email.value)}" value="Registrar Cliente"/>
+            </div>
+            <h2>Listado de Clientes: </h2>
+            <p:dataTable id="singleDT" var="cliente" value="#{AlquilerItemsBean.consultarClientes()}"
+                         selectionMode="single" selection="#{AlquilerItemsBean.clienteSeleccionado}" paginator="true"
+                         paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                         rowKey="#{cliente.documento}"  rows="7">
+                <f:facet name="header"> Clientes Registrados </f:facet>
+                <p:column headerText="Id">
+                    <h:outputText value="#{cliente.getDocumento()}" />
+                </p:column>
+                <p:column headerText="Name">
+                    <h:outputText value="#{cliente.getNombre()}" />
+                </p:column>
+                <p:column headerText="Email">
+                    <h:outputText value="#{cliente.getEmail()}" />
+                </p:column>
+                <p:column headerText="Address">
+                    <h:outputText value="#{cliente.getDireccion()}" />
+                </p:column>
+                <p:column headerText="Phone">
+                    <h:outputText value="#{cliente.getTelefono()}" />
+                </p:column>
+                <p:column headerText="Banned">
+                    <h:outputText value="#{cliente.isVetado()}" />
+                </p:column>
+                <!--Para BUscar en la forma del cliente para ver los items rentados-->
+                <f:facet name="footer">
+                    <h:commandButton action = "#{AlquilerItemsBean.moveToPageRegistroAlquiler()}" value="Buscar" />
+                </f:facet>
+            </p:dataTable>
+        </h:form>
+    </font>
+</body>
+</html>

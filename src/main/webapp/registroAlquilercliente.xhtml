@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3c.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+    <title>Items Cliente</title>
+</h:head>
+
+<body background="/resources/bg.png" >
+    <font color="#FFFFFF" face="Comic Sans MS">
+        <h1 align="center"><big> Items Alquilados Cliente </big></h1>
+        <br></br>
+        <br></br>
+        <h:form id="Alquiler_Form">
+            <p:dataTable id="alquilerTable" var="itemAlq" value="#{AlquilerItemsBean.getSelectedCliente().rentados}"
+                         paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                         rows="10">
+                <f:facet name="header"> Items Alquilados </f:facet>
+                <p:column headerText="Id">
+                    <h:outputText value="#{itemAlq.item.id}"/>
+                </p:column>
+                <p:column headerText="Name">
+                    <h:outputText value="#{itemAlq.item.nombre}"/>
+                </p:column>
+                <p:column headerText="Descp">
+                    <h:outputText value="#{itemAlq.item.descripcion}"/>
+                </p:column>
+                <p:column headerText="Price">
+                    <h:outputText value="#{itemAlq.item.precio}"/>
+                </p:column>
+                <p:column headerText="Start Date">
+                    <h:outputText value="#{itemAlq.fechainiciorenta}"/>
+                </p:column>
+                <p:column headerText="End Date">
+                    <h:outputText value="#{itemAlq.fechafinrenta}"/>
+                </p:column>
+                <p:column headerText="Penalty Fee">
+                    <h:outputText value="#{AlquilerItemsBean.consultarMultaAlquiler(itemAlq.item.id)}"/>
+                </p:column >
+            </p:dataTable>
+        </h:form>
+    </font>
+</body>
+</html>
