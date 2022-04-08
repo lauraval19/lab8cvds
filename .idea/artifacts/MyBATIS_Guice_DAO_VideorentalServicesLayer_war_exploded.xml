@@ -1,0 +1,39 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="MyBATIS-Guice-DAO-VideorentalServicesLayer:war exploded">
+    <output-path>$PROJECT_DIR$/target/MyBATIS-Guice-DAO-VideorentalServicesLayer-1.0-SNAPSHOT</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <exploded>true</exploded>
+        <module>MyBATIS-Guice-DAO-VideorentalServicesLayer</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="MyBATIS-Guice-DAO-VideorentalServicesLayer" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: org.mybatis:mybatis-guice:3.10" />
+          <element id="library" level="project" name="Maven: junit:junit:4.11" />
+          <element id="library" level="project" name="Maven: org.hamcrest:hamcrest-core:1.3" />
+          <element id="library" level="project" name="Maven: org.mybatis:mybatis:3.4.5" />
+          <element id="library" level="project" name="Maven: com.google.inject:guice:4.0" />
+          <element id="library" level="project" name="Maven: javax.inject:javax.inject:1" />
+          <element id="library" level="project" name="Maven: aopalliance:aopalliance:1.0" />
+          <element id="library" level="project" name="Maven: com.google.guava:guava:16.0.1" />
+          <element id="library" level="project" name="Maven: mysql:mysql-connector-java:5.1.44" />
+          <element id="library" level="project" name="Maven: com.h2database:h2:1.4.191" />
+          <element id="library" level="project" name="Maven: com.sun.faces:jsf-api:2.2.20" />
+          <element id="library" level="project" name="Maven: com.sun.faces:jsf-impl:2.2.20" />
+          <element id="library" level="project" name="Maven: javax.servlet:jstl:1.2" />
+          <element id="library" level="project" name="Maven: org.primefaces:primefaces:7.0" />
+        </element>
+      </element>
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/target/MyBATIS-Guice-DAO-VideorentalServicesLayer-1.0-SNAPSHOT/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="javaee-facet-resources" facet="MyBATIS-Guice-DAO-VideorentalServicesLayer/web/Web" />
+    </root>
+  </artifact>
+</component>
