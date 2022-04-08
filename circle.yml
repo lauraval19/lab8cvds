@@ -4,6 +4,12 @@ machine:
 
 deployment:
   staging:
-    branch: master
+    branch: main
     heroku: 
-      appname: lab08jaival
+      appname: lab8val
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - build
+      - test
